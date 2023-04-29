@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Calculator</title>
+    <style>
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>BMI Calculator</h1>
+    <label>
+            Height (cm):
+            <input type="number" id="height">
+        </label>
+    <label>
+            Weight (kg):
+            <input type="number" id="weight">
+    </label>
+    <button onclick="calculateBMI()">Calculate BMI</button>
+    <div id="result"></div>
+    <script>
+        function calculateBMI() {
+            var height = document.getElementById("height").value;
+            var weight = document.getElementById("weight").value;
+            var bmi = weight / ((height / 100) ** 2);
+            var info = document.getElementById("result");
+            console.log(bmi)
+            if (bmi < 18.5) {
+                info.innerHtml = "You are underweight.";
+                alert("Your BMI is " + bmi.toFixed(1) + ". You are underweight.");
+                console.log(info.innerHtml)
+            } else if (bmi >= 18.5 && bmi < 25) {
+                info.innerHtml = "You have a good weight.";
+                alert("Your BMI is " + bmi.toFixed(1) + ". You have a good weight.");
+                console.log(info.innerHtml)
+            } else if (bmi >= 25 && bmi < 30) {
+                info.innerHtml = "You are obese.";
+                alert("Your BMI is " + bmi.toFixed(1) + ". You are obese.");
+                console.log(info.innerHtml)
+            } else {
+                alert("Your BMI is " + bmi.toFixed(1) + ". You are extremely obese.");
+            }
+        }
+    </script>
+</body>
+
+</html>
